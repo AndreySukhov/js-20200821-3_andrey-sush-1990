@@ -1,5 +1,7 @@
 "use strict";
 
+import { sum } from './index'
+
 describe("0-module-1-task", function() {
 
     it("1+1=2", function() {

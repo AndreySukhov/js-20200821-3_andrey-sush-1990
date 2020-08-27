@@ -6,12 +6,18 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
+  if (param !== 'asc' && param !== 'desc') {
+    console.error('invalid sort direction')
+    return arr
+  }
+
   return [...arr].sort((a, b) => {
-    if (param === 'asc') {
-      return a.localeCompare(b, undefined, { caseFirst: 'upper' })
-    } else {
-      return b.localeCompare(a, undefined, { caseFirst: 'upper' })
-    }
+
+    const isAsc = param === 'asc'
+    const str = isAsc ? a: b
+    const compareString = isAsc ? b : a
+
+    return str.localeCompare(compareString, undefined, { caseFirst: 'upper' })
   })
 
 }

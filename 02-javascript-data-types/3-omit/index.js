@@ -8,7 +8,7 @@ export const omit = (obj, ...fields) => {
   return Object.entries({...obj}).reduce((acc, curr) => {
     if (!fields.includes(curr[0])) {
       return {...acc, [curr[0]]: curr[1]}
-    }
+    };
     return acc
-  }, {})
+  }, {});
 };

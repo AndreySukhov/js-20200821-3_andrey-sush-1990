@@ -5,7 +5,6 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-
   if (param !== 'asc' && param !== 'desc') {
     console.error('invalid sort direction')
     return arr

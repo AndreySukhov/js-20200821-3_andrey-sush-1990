@@ -5,18 +5,21 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-  if (param !== 'asc' && param !== 'desc') {
+
+  const directions = {
+    asc: 1,
+    desc: -1
+  };
+
+
+  if (!directions[param]) {
     console.error('invalid sort direction param')
-    return arr
+    return [...arr]
   }
 
   return [...arr].sort((a, b) => {
 
-    const isAsc = param === 'asc'
-    const str = isAsc ? a: b
-    const compareString = isAsc ? b : a
-
-    return str.localeCompare(compareString, undefined, { caseFirst: 'upper' })
+    return directions[param] * a.localeCompare(b, 'default', { caseFirst: 'upper' })
   })
 
 }

@@ -12,9 +12,9 @@ export function invertObj(obj) {
 
     let res = {};
 
-    for (let entry in obj) {
-      res[obj[entry]] = entry;
-    }
+    Object.entries(obj).forEach((entry) => {
+      res[entry[1]] = entry[0];
+    })
 
     return res;
   }
